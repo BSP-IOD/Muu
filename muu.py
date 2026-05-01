@@ -25,7 +25,6 @@ def get_new_connection():
     print(f"Connecting to {ip}...")
     new_sock = socks.socksocket()
     new_sock.set_proxy(socks.SOCKS5, "127.0.0.1", proxy_port, rdns=True)
-    # Enable TCP keep-alive
     new_sock.setsockopt(socket.SOL_SOCKET, socket.SO_KEEPALIVE, 1)
     new_sock.connect((ip, port))
     return new_sock
